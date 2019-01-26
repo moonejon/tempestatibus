@@ -52,3 +52,10 @@ margin-right: auto;
     font-size: 20px;
     text-align: center;
 }
+
+#weather-info-cards {
+    display: flex;
+}
+.detail-card{
+    flex-direction: row;
+}
