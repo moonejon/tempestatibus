@@ -186,39 +186,66 @@ queryURL +=
     });
 }
 
+var tech = function(){
 
+    var x = "technology";
+    var results = [];
+    var num_results = 10;
+    $(document).ready(function(){
+     var queryURL =
+      "https://api.nytimes.com/svc/topstories/v2/"+x+".json?api-key=LLANXrG01LGahaCmowIvO1Ves1rF2cae";
 
+  queryURL +=
+      "&" +
+      $.param({
+       "api-key": "LLANXrG01LGahaCmowIvO1Ves1rF2cae",
+       //  "results": [5]
+      });
 
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
 
+     var filteredRecs = response.results;
+     
+    for(var k = 0; k < 5; k++){
+        
+     console.log(filteredRecs[k].title);
+     
+      
+     } 
+    console.log(filteredRecs); 
+ }).then(function(response){
+     var x= "sports";
+     var queryURL = "https://api.nytimes.com/svc/topstories/v2/"+x+".json?api-key=LLANXrG01LGahaCmowIvO1Ves1rF2cae";
 
+queryURL +=
+ "&" +
+ $.param({
+  "api-key": "LLANXrG01LGahaCmowIvO1Ves1rF2cae",
+  //  "results": [5]
+ });
 
-//     }).then(function(response){
-//         var x= "insider";
-//         var queryURL = "https://api.nytimes.com/svc/topstories/v2/"+x+".json?api-key=LLANXrG01LGahaCmowIvO1Ves1rF2cae";
+ $.ajax({
+     url: queryURL,
+     method:"GET"
 
-// queryURL +=
-//     "&" +
-//     $.param({
-//      "api-key": "LLANXrG01LGahaCmowIvO1Ves1rF2cae",
-//      //  "results": [5]
-//     });
+ }).then(function(respoonse){
 
-//     $.ajax({
-//         url: queryURL,
-//         method:"GET"
+     var filteredRecs = respoonse.results;
 
-//     }).then(function(respoonse){
+     for(var k=0;k<5;k++){
+         console.log(filteredRecs[k].title);
 
-//         var filteredRecs = respoonse.results;
+      
+     }
 
-//         for(var k=0;k<5;k++){
-//             console.log(filteredRecs[k].title);
+ console.log(filteredRecs); 
 
-         
-//         }
+ })
+});
 
-//     console.log(filteredRecs); 
-
-//     });
-//     });
+    });
+}
 
