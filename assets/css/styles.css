@@ -29,11 +29,11 @@ img {
 #current-temperature {
 font-family: 'Nunito Sans', cursive;
 font-weight: bold;
-font-size: 28px;
+font-size: 36px;
 }
 
 #weather-card {
-
+background-color: hsl(210, 36%, 96%);
 margin-top: 40px;
 margin-left: auto;
 margin-right: auto;
@@ -42,7 +42,7 @@ margin-right: auto;
 #location-current {
     font-family: 'Nunito Sans', cursive;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 36px;
     text-align: center;
 }
 
@@ -53,9 +53,21 @@ margin-right: auto;
     text-align: center;
 }
 
-#weather-info-cards {
-    display: flex;
+.detail-card {
+    font-family: 'Nunito Sans', cursive;
+    font-weight: light;
+    font-size:  32px;
+   margin-top: 15px;
+   text-align: center;
 }
-.detail-card{
-    flex-direction: row;
+
+.detail-title {
+    text-align: center;
+}
+
+.card-header {
+    font-family: 'Nunito Sans', cursive;
+    font-weight: lighter;
+    font-size: 18px;
+    text-align: center;
 }

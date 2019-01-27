@@ -17,6 +17,9 @@
         <div id="weather-hero">
             <div id="weather-main">
                 <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m" id="weather-card">
+                    <div class="card-header">
+                        CURRENT WEATHER
+                    </div>
                     <div id="location-current">Houston, TX
                         <img src="assets/climacons-master/Cloud-Hail-Moon.svg">
                         34 F
@@ -24,11 +27,31 @@
                     </div>
                     <div class="weather-info-current">
                             <p id="weather-wordy-status">Light rain stopping in 13 min., starting again 30 min. later.</p>
-                            <div class="frow row-around">
-                        <div class="uk-card uk-card-default uk-card-body uk-width-1-4@m" id="detail-card">34</div>
-                        <div class="uk-card uk-card-default uk-card-body uk-width-1-4@m" id="detail-card">34</div>
-                        <div class="uk-card uk-card-default uk-card-body uk-width-1-4@m" id="detail-card">34</div>
-                        <div class="uk-card uk-card-default uk-card-body uk-width-1-4@m" id="detail-card">34</div>
+                        <div class="uk-grid-small uk-child-width-expand" uk-grid>
+                            <div>
+                            <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                            <p class="detail-card">45&deg;</p>
+                            <p  class="detail-title" >MAX TEMP</p>
+                            </div>
+                            </div>
+                            <div>
+                                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                                    <p class="detail-card">28&deg;</p>
+                                    <p class="detail-title">MIN TEMP</p>
+                                </div>
+                            </div>
+                            <div>
+                            <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                                <p class="detail-card">15%</p>
+                                <p class="detail-title">PRECIPITATION</p>
+                            </div>
+                            </div>
+                            <div>
+                            <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                                <p class="detail-card">15 MPH</p>
+                                <p class="detail-title">WIND SPEED</p>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
