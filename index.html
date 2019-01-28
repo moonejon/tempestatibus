@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Monoton|Nunito+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/css/uikit.min.css"/>
+        <link rel="stylesheet" href="node_modules/frow/dist/frow.min.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
+    <body>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+        <header>Tempestatibus</header>
+        <hr class="uk-divider-icon">
+        
+        <div id="weather-hero">
+            <div id="weather-main">
+                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m" id="weather-card">
+                    <div id="location-current">Houston, TX
+                        <img src="assets/climacons-master/Cloud-Hail-Moon.svg">
+                        34 F
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa2h9qlaLd0YfUtXstdOGfGtwojoTC50M&libraries=places,geometry"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js'></script>
+                    </div>
+                    <div class="weather-info-current">
+                            <p id="weather-wordy-status">Light rain stopping in 13 min., starting again 30 min. later.</p>
+                        <div class="uk-card uk-card-default uk-card-body uk-width-1-4@m" id="detail-card">34</div>
+                        <div class="uk-card uk-card-default uk-card-body uk-width-1-4@m" id="detail-card">34</div>
+                        <div class="uk-card uk-card-default uk-card-body uk-width-1-4@m" id="detail-card">34</div>
+                        <div class="uk-card uk-card-default uk-card-body uk-width-1-4@m" id="detail-card">34</div>
+                    </div>
+                </div>
 
-</head>
+            </div>
+        </div>
 
-<body>
-
-
-    <form method="get">
+          <form method="get">
 
         <li>
             <label for="city-search">City Name</label>
             <input type="text" id="city-search" placeholder="e.g. Houston, TX">
         </li>
     </form>
-
-    <script src="assets/logic.js"> </script>
-
-</body>
-
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/js/uikit.min.js" 
+                integrity="sha256-2vL3vDc2j7XdT1qgHvWPSCmULPhJ6q0bLlPIgPXFQPI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/js/uikit-icons.min.js" 
+                integrity="sha256-eQPdtNjxSg+WO2RwUfv5Jb/ZSlCIfsH6umy+Q9Fpuk0=" crossorigin="anonymous"></script>
+        <script src="assets/logic.js"> </script>
+    </body>
 </html>
