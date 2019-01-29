@@ -20,19 +20,14 @@ img {
     height: auto;
 }
 
-.dot {
-  height: 75px;
-  width: 75px;
-  background-color: #white;
-  border-radius: 50%;
-}
+
 #current-temperature {
 font-family: 'Nunito Sans', cursive;
 font-weight: bold;
 font-size: 36px;
 }
 
-#weather-card {
+.weather-card {
 background-color: hsl(210, 36%, 96%);
 margin-top: 40px;
 margin-left: auto;
@@ -61,10 +56,29 @@ margin-right: auto;
    text-align: center;
 }
 
-.detail-title {
+.weekly-detail-title {
     text-align: center;
 }
 
+.weekly-detail-card {
+    font-family: 'Nunito Sans', cursive;
+    font-weight: light;
+    font-size:  18px;
+   margin-top: 15px;
+   text-align: center;
+}
+
+.weekly-card-header {
+    font-family: 'Nunito Sans', cursive;
+    font-weight: lighter;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.detail-title {
+    text-align: center;
+}
 .card-header {
     font-family: 'Nunito Sans', cursive;
     font-weight: lighter;
