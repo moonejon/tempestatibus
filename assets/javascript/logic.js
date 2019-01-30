@@ -37,6 +37,8 @@ searchBox.addListener('places_changed', function () {
             //Current Day Forcast
 
 
+            var address = locale.formatted_address;
+            $("#currLoc").text(address);
             var currDate = new Date(forecast.currently.time * 1000);
 
             var currDay = days[currDate.getDay()]
@@ -46,15 +48,40 @@ searchBox.addListener('places_changed', function () {
             var currSkicons = forecast.currently.icon;
             console.log("icons :" + currSkicons);
 
+
+
             var currSummary = forecast.currently.summary;
             console.log("Summary :" + currSummary);
+
             var currTemp = Math.round(forecast.currently.temperature);
             console.log("Temperature :" + currTemp);
+
+            $("#currTemp").text(currTemp + " " + "F");
+            $("#weather-wordy-status").text(currSummary);
+
+
+            //Today Forecast
+
+            var date = new Date(forecast.daily.data[0].time * 1000);
+
+            var day = days[date.getDay()]
+            var tempCurrMax = Math.round(forecast.daily.data[0].temperatureMax);
+            console.log("Max temp :" + tempCurrMax);
+
+            $("#maxCurrTemp").text(tempCurrMax + " " + "F");
+
+            var tempCurrMin = Math.round(forecast.daily.data[0].temperatureLow)
+            console.log("Min temp :" + tempCurrMin);
+            $("#minCurrTemp").text(tempCurrMin + " " + "F");
+            var currPrec = Math.round((forecast.daily.data[0].precipProbability) * 100)
+            $("#currPrec").text(currPrec + " " + "%");
+            var currWindSpeed = Math.round(forecast.daily.data[0].windSpeed);
+            $("#currWindSpeed").text(currWindSpeed + " " + "MPH");
 
 
             //Seven day Forecast
 
-            for (var i = 0; i < 7; i++) {
+            for (var i = 1; i < 7; i++) {
 
                 var date = new Date(forecast.daily.data[i].time * 1000);
 
