@@ -1,114 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="google-signin-scope" content="profile email">
-        <meta name="google-signin-client_id" content="89672675826-ut68sal4k0dljj7ocn098slba69g053s.apps.googleusercontent.com">    
-        <link href="https://fonts.googleapis.com/css?family=Monoton|Nunito+Sans" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/css/uikit.min.css"/>
-        <link rel="stylesheet" href="node_modules/frow/dist/frow.min.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-    </head>
-    <body>
 
-        <header>Tempestatibus</header>
-        <hr class="uk-divider-icon">
-        
-        <div id="weather-hero">
-            <div id="weather-main">
-                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m weather-card">
-                    <div class="card-header">
-                        CURRENT WEATHER
-                    </div>
-                    <div id="location-current">Houston, TX
-                        <img src="assets/climacons-master/Cloud-Hail-Moon.svg">
-                        34 F
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="89672675826-ut68sal4k0dljj7ocn098slba69g053s.apps.googleusercontent.com">
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Nunito+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/css/uikit.min.css" />
+    <link rel="stylesheet" href="node_modules/frow/dist/frow.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa2h9qlaLd0YfUtXstdOGfGtwojoTC50M&libraries=places,geometry"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js'></script>
 
-                    </div>
-                    <div class="weather-info-current">
-                            <p id="weather-wordy-status">Light rain stopping in 13 min., starting again 30 min. later.</p>
-                        <div class="uk-grid-small uk-child-width-expand" uk-grid>
-                            <div>
+</head>
+
+<body>
+
+    <header>Tempestatibus</header>
+    <hr class="uk-divider-icon">
+
+    <div id="weather-hero">
+        <div id="weather-main">
+            <li>
+                <label for="city-search">City Name</label>
+                <input type="text" id="city-search" placeholder="e.g. Houston, TX">
+            </li>
+            <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m" id="weather-card">
+                <div class="card-header">
+                    CURRENT WEATHER
+                </div>
+                <div id="location-current">
+                    <p id=currLoc> Houston,TX </p>
+                    <img src="assets/climacons-master/Cloud-Hail-Moon.svg">
+                    <span id=currTemp>34 F</span>
+
+                </div>
+                <div class="weather-info-current">
+                    <p id="weather-wordy-status">Light rain stopping in 13 min., starting again 30 min. later.</p>
+                    <div class="uk-grid-small uk-child-width-expand" uk-grid>
+                        <div>
                             <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
-                            <p class="detail-card">45&deg;</p>
-                            <p  class="detail-title" >MAX TEMP</p>
+                                <p id="maxCurrTemp" class="detail-card">45&deg;</p>
+                                <p class="detail-title">MAX TEMP</p>
                             </div>
-                            </div>
-                            <div>
-                                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
-                                    <p class="detail-card">28&deg;</p>
-                                    <p class="detail-title">MIN TEMP</p>
-                                </div>
-                            </div>
-                            <div>
+                        </div>
+                        <div>
                             <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
-                                <p class="detail-card">15%</p>
+                                <p id="minCurrTemp" class="detail-card">28&deg;</p>
+                                <p class="detail-title">MIN TEMP</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                                <p id="currPrec" class="detail-card">15%</p>
                                 <p class="detail-title">PRECIPITATION</p>
                             </div>
-                            </div>
-                            <div>
+                        </div>
+                        <div>
                             <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
-                                <p class="detail-card">15 MPH</p>
+                                <p id="currWindSpeed" class="detail-card">15 MPH</p>
                                 <p class="detail-title">WIND SPEED</p>
-                            </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m weather-card">
-                    <div class="weekly-card-header">
-                        WEEKLY FORECAST
-                    </div>
-                    <div class="weather-forecast-weekly">
-                        <div class="uk-grid-small uk-child-width-expand" uk-grid>
-                                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
-                                    <p class="weekly-detail-card">28&deg; /  45&deg;</p>
-                                    <p class="weekly-detail-title">WED</p>
-                                </div>
-                                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
-                                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
-                                    <p class="weekly-detail-title">THURS</p>
-                                </div>
-                                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
-                                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
-                                    <p class="weekly-detail-title">FRI</p>
-                                </div>
-                                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
-                                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
-                                    <p class="weekly-detail-title">SAT</p>
-                                </div>
-                                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
-                                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
-                                    <p class="weekly-detail-title">SUN</p>
-                                </div>
-                                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
-                                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
-                                    <p class="weekly-detail-title">MON</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
 
+        </div>
+    </div>
+
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m weather-card">
+        <div class="weekly-card-header">
+            WEEKLY FORECAST
+        </div>
+        <div class="weather-forecast-weekly">
+            <div class="uk-grid-small uk-child-width-expand" uk-grid>
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
+                    <p class="weekly-detail-title">WED</p>
+                </div>
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
+                    <p class="weekly-detail-title">THURS</p>
+                </div>
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
+                    <p class="weekly-detail-title">FRI</p>
+                </div>
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
+                    <p class="weekly-detail-title">SAT</p>
+                </div>
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
+                    <p class="weekly-detail-title">SUN</p>
+                </div>
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-padding-remove-horizontal">
+                    <p class="weekly-detail-card">28&deg; / 45&deg;</p>
+                    <p class="weekly-detail-title">MON</p>
+                </div>
             </div>
         </div>
+    </div>
+    </div>
 
-          <form method="get">
+    </div>
 
-        <li>
-            <label for="city-search">City Name</label>
-            <input type="text" id="city-search" placeholder="e.g. Houston, TX">
-        </li>
-    </form>
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/js/uikit.min.js" 
-                integrity="sha256-2vL3vDc2j7XdT1qgHvWPSCmULPhJ6q0bLlPIgPXFQPI=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/js/uikit-icons.min.js" 
-                integrity="sha256-eQPdtNjxSg+WO2RwUfv5Jb/ZSlCIfsH6umy+Q9Fpuk0=" crossorigin="anonymous"></script>
-        <script src="https://apis.google.com/js/platform.js"></script>
 
-        <script src="assets/logic.js"> </script>
-    </body>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/js/uikit.min.js" integrity="sha256-2vL3vDc2j7XdT1qgHvWPSCmULPhJ6q0bLlPIgPXFQPI="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/js/uikit-icons.min.js" integrity="sha256-eQPdtNjxSg+WO2RwUfv5Jb/ZSlCIfsH6umy+Q9Fpuk0="
+        crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+
+    <script src="assets/javascript/logic.js"> </script>
+</body>
+
 </html>

@@ -1,0 +1,6 @@
+{
+  "requires": true,
+  "dependencies": {
+    "frow": "^3.0.4"
+  }
+}
