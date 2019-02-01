@@ -105,7 +105,7 @@ const gitSignin = document.getElementById('gitSignin');
 gitSignin.addEventListener('click',e=>{
 var provider = new firebase.auth.GithubAuthProvider();
 provider.addScope('repo');
-provicer.addScope('email');
+provider.addScope('email');
 provider.addScope
 firebase.auth().signInWithPopup(provider).then(function(result){
 var token = result.credential.accessToken;
