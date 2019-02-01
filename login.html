@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <!-- <script src=”https://apis.google.com/js/platform.js" async defer></script> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <input id="txtEmail" type="email" placeholder="Email">
+
+        <input id="txtPassword" type="password" placeholder="Password">
+
+        <button id="btnLogin" class="btn btn-action">Log in</button>
+        <button id="btnSignup" class="btn btn-secondary">Sign Up</button>
+        <button id="btnSignout" class="btn btn-secondary">Sign out</button>
+        <button id="googleSignin" class="btn btn-secondary">Sign-in With Google!</button>
+    </div>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyA37zrxbnvySZHEoRmqK7SxyO4xMQ2UM5Y",
+        authDomain: "tempestatibus-1548211855661.firebaseapp.com",
+        databaseURL: "https://tempestatibus-1548211855661.firebaseio.com",
+        projectId: "tempestatibus-1548211855661",
+        storageBucket: "tempestatibus-1548211855661.appspot.com",
+        messagingSenderId: "261952237475"
+    };
+    firebase.initializeApp(config);
+    // getting elements
+
+    const txtEmail = document.getElementById('txtEmail');
+    const txtPassword = document.getElementById('txtPassword');
+    const btnLogin = document.getElementById('btnLogin');
+    const btnSignup = document.getElementById('btnSignup');
+
+    // Add login event
+
+    btnLogin.addEventListener('click', e => {
+        const email = txtEmail.value;
+        const pass = txtPassword.value;
+        const auth = firebase.auth();
+        //sign in 
+
+        const promise = auth.signInWithEmailAndPassword(email, pass);
+        if (e) {
+            window.location = "index.html";
+        } else {
+            console.log("error");
+        }
+
+        promise.catch(e => console.log(e.message));
+
+
+
+
+    });
+
+    //add sign up
+
+    btnSignup.addEventListener('click', e => {
+
+        const txtEmail = document.getElementById('txtEmail');
+        const txtPassword = document.getElementById('txtPassword');
+        const btnLogin = document.getElementById('btnLogin');
+        const btnSignup = document.getElementById('btnSignup');
+
+
+        // Add login event
+
+        btnLogin.addEventListener('click', e => {
+            const email = txtEmail.value;
+            const pass = txtPassword.value;
+            const auth = firebase.auth();
+            //sign in 
+
+            const promise = auth.createUserWithEmailAndPassword(email, pass);
+
+            promise.catch(e => console.log(e.message));
+        });
+
+        // adding real time auth listener
+
+        firebase.auth().onAuthStateChanged(firebaseUser => {
+
+            if (firebaseUser) {
+                window.location = "index.html";
+                console.log(firebaseUser);
+
+            } else {
+                console.log("not logged in");
+            }
+
+        });
+
+
+    });
+
+    const googleSignin = document.getElementById('googleSignin');
+
+    googleSignin.addEventListener('click', e => {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('email');
+        provider.addScope('https://www.googleapis.com/auth/plus.me');
+        firebase.auth().signInWithPopup(provider); //will open up popup gmail, will return promise to handle errors.
+
+
+    });
+
+
+
+
+</script>
+
+</html>
