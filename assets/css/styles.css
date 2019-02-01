@@ -38,9 +38,14 @@ margin-right: auto;
     font-family: 'Nunito Sans', cursive;
     font-weight: bold;
     font-size: 36px;
-    text-align: center;
 }
 
+#current-overview {
+    font-family: 'Nunito Sans', cursive;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+}
 #weather-wordy-status {
     font-family: 'Nunito Sans', cursive;
     font-weight: bold;
@@ -84,4 +89,8 @@ margin-right: auto;
     font-weight: lighter;
     font-size: 18px;
     text-align: center;
+}
+
+#city-search {
+    color: white;
 }
