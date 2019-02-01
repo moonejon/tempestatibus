@@ -4,7 +4,6 @@ var longitude;
 var searchBox = new google.maps.places.SearchBox(document.querySelector("#city-search"));
 
 searchBox.addListener('places_changed', function () {
-
     var locale = searchBox.getPlaces()[0];
 
     console.log(locale);
@@ -38,7 +37,8 @@ searchBox.addListener('places_changed', function () {
 
 
             var address = locale.formatted_address;
-            $("#currLoc").text(address);
+            $("#location-current").text(address);
+    
             var currDate = new Date(forecast.currently.time * 1000);
 
             var currDay = days[currDate.getDay()]
@@ -85,7 +85,8 @@ searchBox.addListener('places_changed', function () {
 
                 var date = new Date(forecast.daily.data[i].time * 1000);
 
-                var day = days[date.getDay()]
+                var day= days[date.getDay()];
+                
                 console.log("----7 day forecast start with current day----" + day);
 
                 console.log(day);
@@ -103,6 +104,12 @@ searchBox.addListener('places_changed', function () {
                 console.log("Max temp :" + tempMax);
                 var tempLow = Math.round(forecast.daily.data[i].temperatureLow)
                 console.log("Min temp :" + tempLow);
+
+                
+                    $("#maxMin"+i).html(tempMax + "&deg;" + " / " + tempLow + "&deg;");
+                    $("#day"+i).text(day);
+
+                
 
             }
 
