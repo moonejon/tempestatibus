@@ -101,9 +101,15 @@ searchBox.addListener('places_changed', function(){
 
             console.log("--------Current forcast---------" + currDay)
 
+
             var currSkicons = forecast.currently.icon;
             console.log("icons :" + currSkicons);
+            
+            var skycons = new Skycons();
 
+            skycons.add("currImg", currSkicons);
+
+            skycons.play();
 
 
             var currSummary = forecast.currently.summary;
