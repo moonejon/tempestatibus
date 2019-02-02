@@ -3,19 +3,72 @@ var longitude;
 
 var searchBox = new google.maps.places.SearchBox(document.querySelector("#city-search"));
 
-$("#city-search").submit(function(e){
-    e.preventDefault();
-});
+$(document).ready(getLocation);
 
-searchBox.addListener('places_changed', function () {
+    function getLocation() {
+    if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function geoSuccess(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    console.log("lat:" + latitude + " lng:" + longitude);
+    codeLatLng(latitude, longitude);
+    }
+
+    function geoError() {
+    console.log("Geocoder failed.");
+}
+
+    var geocoder;
+    function initialize() {
+    geocoder = new google.maps.Geocoder();
+}
+
+function codeLatLng(lat, lng) {
+    initialize();
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if(status == google.maps.GeocoderStatus.OK) {
+          console.log(results)
+          if(results[1]) {
+              //formatted address
+              var address = results[0].formatted_address;
+              getDarkSkyData(lat, lng, address);
+              console.log("address = " + address);
+          } else {
+              console.log("No results found");
+          }
+      } else {
+          console.log("Geocoder failed due to: " + status);
+      }
+    });
+}
+
+
+
+
+
+searchBox.addListener('places_changed', function(){
+    
     var locale = searchBox.getPlaces()[0];
 
     console.log(locale);
-
     latitude = locale.geometry.location.lat();
     longitude = locale.geometry.location.lng();
+    address = locale.formatted_address;
     console.log("Latitude : " + latitude);
     console.log("longitude :" + longitude);
+    getDarkSkyData(latitude, longitude, address);
+    });
+
+
+
+    function getDarkSkyData(latitude, longitude, locale){
 
     var proxy = 'https://cors-anywhere.herokuapp.com/';
     var apiLinkDS = 'https://api.darksky.net/forecast/36dca47fc87009c040d8667dfb22db85/' + latitude + ',' + longitude;
@@ -40,8 +93,7 @@ searchBox.addListener('places_changed', function () {
             //Current Day Forcast
 
 
-            var address = locale.formatted_address;
-            $("#location-current").text(address);
+            $("#location-current").text(locale);
     
             var currDate = new Date(forecast.currently.time * 1000);
 
@@ -119,8 +171,7 @@ searchBox.addListener('places_changed', function () {
 
 
         }
-    });
-
 });
 
 
+    };
