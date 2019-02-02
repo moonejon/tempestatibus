@@ -7,6 +7,18 @@ var searchBox = new google.maps.places.SearchBox(
 
 $(document).ready(getLocation);
 
+searchBox.addListener("places_changed", function() {
+    var locale = searchBox.getPlaces()[0];
+
+    console.log(locale);
+    latitude = locale.geometry.location.lat();
+    longitude = locale.geometry.location.lng();
+    address = locale.formatted_address;
+    console.log("Latitude : " + latitude);
+    console.log("longitude :" + longitude);
+    getDarkSkyData(latitude, longitude, address);
+});
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
@@ -50,18 +62,6 @@ function codeLatLng(lat, lng) {
         }
     });
 }
-
-searchBox.addListener("places_changed", function() {
-    var locale = searchBox.getPlaces()[0];
-
-    console.log(locale);
-    latitude = locale.geometry.location.lat();
-    longitude = locale.geometry.location.lng();
-    address = locale.formatted_address;
-    console.log("Latitude : " + latitude);
-    console.log("longitude :" + longitude);
-    getDarkSkyData(latitude, longitude, address);
-});
 
 function getDarkSkyData(latitude, longitude, locale) {
     var proxy = "https://cors-anywhere.herokuapp.com/";
@@ -233,21 +233,20 @@ googleSignin.addEventListener("click", e => {
     firebase.auth().signInWithPopup(provider); //will open up popup gmail, will return promise to handle errors.
 });
 
-
 function onSuccess(googleUser) {
-    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    console.log("Logged in as: " + googleUser.getBasicProfile().getName());
 }
 function onFailure(error) {
     console.log(error);
 }
 function renderButton() {
-    gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
+    gapi.signin2.render("my-signin2", {
+        scope: "profile email",
+        width: 240,
+        height: 50,
+        longtitle: true,
+        theme: "dark",
+        onsuccess: onSuccess,
+        onfailure: onFailure
     });
 }

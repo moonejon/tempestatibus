@@ -1,44 +1,31 @@
-html{
-
-}
-
-html{
-    background-color: hsl(218, 50%, 17%)
+html {
+    background-color: hsl(218, 50%, 17%);
 }
 
 header {
-    color:white;
+    color: white;
     font-size: 24pt;
-    font-family: 'Monoton', cursive;
+    font-family: "Monoton", cursive;
     margin-top: 20px;
     text-align: center;
 }
 
-h1{
+h1 {
     margin-bottom: 40px;
 }
-
-.formInput {
-
-}
-
-/* #txtEmail{
-    border-bottom: none;
-    margin-bottom: 60px;
-} */
 
 #txtPassword {
     margin-bottom: 40px;
 }
 
 #currImg {
- width: 20%;
- height: auto;
+    width: 20%;
+    height: auto;
 }
 
 #modal-button {
-    color:white;
-    font-family: 'Nunito Sans', cursive;
+    color: white;
+    font-family: "Nunito Sans", cursive;
     display: block;
 
     margin-left: auto;
@@ -48,29 +35,29 @@ h1{
     width: 200px;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  text-align: center;
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    text-align: center;
 }
-::-moz-placeholder { /* Firefox 19+ */
-  text-align: center;
+::-moz-placeholder {
+    /* Firefox 19+ */
+    text-align: center;
 }
-:-ms-input-placeholder { /* IE 10+ */
-  text-align: center;
+:-ms-input-placeholder {
+    /* IE 10+ */
+    text-align: center;
 }
-:-moz-placeholder { /* Firefox 18- */
-  text-align: center;
+:-moz-placeholder {
+    /* Firefox 18- */
+    text-align: center;
 }
 
-#city-search{
-margin-bottom:30px;
+#city-search {
+    margin-bottom: 30px;
 }
-
-/* #search-box-container {
-    display: flex;
-} */
 
 #current-temperature {
-    font-family: 'Nunito Sans', cursive;
+    font-family: "Nunito Sans", cursive;
     font-weight: bold;
     font-size: 36px;
 }
@@ -83,38 +70,38 @@ margin-bottom:30px;
 }
 
 .card-header {
-    font-family: 'Nunito Sans', cursive;
+    font-family: "Nunito Sans", cursive;
     font-weight: lighter;
     font-size: 18px;
     text-align: center;
 }
 #location-current {
-    font-family: 'Nunito Sans', cursive;
+    font-family: "Nunito Sans", cursive;
     font-weight: bold;
     font-size: 36px;
     margin-top: 20px;
 }
 
 #current-overview {
-    font-family: 'Nunito Sans', cursive;
+    font-family: "Nunito Sans", cursive;
     font-weight: bold;
     font-size: 36px;
     text-align: center;
 }
 #weather-wordy-status {
     margin-top: 20px;
-    font-family: 'Nunito Sans', cursive;
+    font-family: "Nunito Sans", cursive;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
 }
 
 .detail-card {
-    font-family: 'Nunito Sans', cursive;
+    font-family: "Nunito Sans", cursive;
     font-weight: light;
-    font-size:  32px;
-   margin-top: 15px;
-   text-align: center;
+    font-size: 32px;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .weekly-detail-title {
@@ -122,15 +109,15 @@ margin-bottom:30px;
 }
 
 .weekly-detail-card {
-    font-family: 'Nunito Sans', cursive;
+    font-family: "Nunito Sans", cursive;
     font-weight: light;
-    font-size:  18px;
-   margin-top: 15px;
-   text-align: center;
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .weekly-card-header {
-    font-family: 'Nunito Sans', cursive;
+    font-family: "Nunito Sans", cursive;
     font-weight: lighter;
     font-size: 18px;
     text-align: center;
@@ -141,7 +128,6 @@ margin-bottom:30px;
     text-align: center;
 }
 
-
 #city-search {
     color: black;
 }
@@ -149,5 +135,4 @@ margin-bottom:30px;
 .headlines {
     text-align: left;
     padding: 5px;
-
 }
