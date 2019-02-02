@@ -15,9 +15,9 @@ header {
 }
 
 
-img {
-    width: 20%;
-    height: auto;
+#currImg {
+ width: 20%;
+ height: auto;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
