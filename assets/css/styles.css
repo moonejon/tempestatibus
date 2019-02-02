@@ -64,6 +64,7 @@ margin-bottom:30px;
     font-family: 'Nunito Sans', cursive;
     font-weight: bold;
     font-size: 36px;
+    margin-top: 20px;
 }
 
 #current-overview {
@@ -73,6 +74,7 @@ margin-bottom:30px;
     text-align: center;
 }
 #weather-wordy-status {
+    margin-top: 20px;
     font-family: 'Nunito Sans', cursive;
     font-weight: bold;
     font-size: 20px;
