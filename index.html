@@ -10,19 +10,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/css/uikit.min.css" />
 <link rel="stylesheet" href="node_modules/frow/dist/frow.min.css">
 <link rel="stylesheet" href="assets/css/styles.css">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa2h9qlaLd0YfUtXstdOGfGtwojoTC50M&libraries=places,geometry"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa2h9qlaLd0YfUtXstdOGfGtwojoTC50M&libraries=places,geometry"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
 </head>
 
 <body>
@@ -131,18 +129,27 @@
         <div>
         <a id="modal-button" class="uk-button uk-button-default" href="#modal-full" uk-toggle>ACCOUNT</a>
         </div>
+        
     <div id="modal-full" class="uk-modal-full" uk-modal>
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
             <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
                 <div class="uk-background-cover" style="background-image: url('assets/modal-background.jpeg');" uk-height-viewport></div>
                 <div class="uk-padding-large">
-                    <h1></h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h1>Account</h1>
+                    <form class="uk-grid-small" uk-grid>
+                        <div class="uk-width-1-1">
+                            <input id="txtEmail" class="uk-input" type="text" placeholder="Enter email address">
+                        </div>
+                        <div class="uk-width-1-1">
+                            <input id="txtPassword" class="uk-input" type="password" placeholder="Enter password">
+                        </div>
+                    </form>
+                    <button id="btnLogout" class="uk-button uk-align-right" style="color: white">Log out</button>
+                    <button id="googleSignin" class="uk-button uk-align-right" style="color: white">Sign in with Google!</button>
+                    <button id="btnLogin" class="uk-button uk-align-right" style="color: white">Log in</button>
+                    <button id="btnSignup" class="uk-button uk-align-right" style="color: white">Sign Up</button>
+                    </div>
                 </div>
             </div>
         </div>
