@@ -20,6 +20,18 @@ header {
  height: auto;
 }
 
+#modal-button {
+    color:white;
+    font-family: 'Nunito Sans', cursive;
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 200px;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   text-align: center;
 }
