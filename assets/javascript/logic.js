@@ -3,6 +3,10 @@ var longitude;
 
 var searchBox = new google.maps.places.SearchBox(document.querySelector("#city-search"));
 
+$("#city-search").submit(function(e){
+    e.preventDefault();
+});
+
 searchBox.addListener('places_changed', function () {
     var locale = searchBox.getPlaces()[0];
 
