@@ -12,13 +12,15 @@ function onSignIn(googleUser) {
     console.log("ID Token: " + id_token);
   }
 
-  gapi.load('auth2', function() {
-auth2 = gapi.auth2.init({
-client_id: "89672675826-ut68sal4k0dljj7ocn098slba69g053s.apps.googleusercontent.com",
-fetch_basic_profile: false,
-scope: 'profile'
-});
+gapi.load('auth2', function () {
+  auth2 = gapi.auth2.init({
+    client_id: "89672675826-ut68sal4k0dljj7ocn098slba69g053s.apps.googleusercontent.com",
+    fetch_basic_profile: false,
+    scope: 'profile'
+  });
 
-auth2.signIn().then(function() {
-console.log(auth2.currentUser.get().getId());
+  auth2.signIn().then(function () {
+    console.log(auth2.currentUser.get().getId());
+  });
+
 });
